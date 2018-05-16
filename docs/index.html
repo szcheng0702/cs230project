@@ -1,0 +1,152 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CS231N-Frame Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="./resource/css/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="./resource/css/styles.css">
+    <!-- 1. Load libraries -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
+    <script src="./resource/js/index.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div ng-reflect-class-name="ui menu inverted" class="ui menu inverted">
+            <div id="title">
+                <h3 class="ui center aligned subtitle">
+                    <a href="http://cs231n.stanford.edu">Stanford CS231N</a>
+                </h3>
+                <h1><a href="https://github.com/dengl11/CS231N-Project">Frame Prediction with Encoder</a></h1>
+            </div>
+        </div>
+        <div id="author"><span>Yue Li</span> <span>Sijun He</span><span>Li Deng</span></div>
+        <div class="body">
+            <div class="card">
+                <div class="center_panel">
+                    <div class="ui Medium images">
+                        <a data-fancybox="poster" data-caption="Encoder-Decoder Model" href="resource/img/1.png"><img src="resource/img/1.png"></a>
+                        <a data-fancybox="poster" data-caption="Frame Prediction on Tennis Dataset" href="resource/img/2.png"><img src="resource/img/2.png"></a>
+                        <a data-fancybox="poster" data-caption="Sequence Prediction" href="resource/img/3.png"><img src="resource/img/3.png"></a>
+                    </div>
+                </div>
+                <h2>Encoder-Decoder Based Prediction</h2>
+                <h3>Comment:</h3>
+                <h4>
+                 It was not until when we were writing the final report that we realized that we mistakenly mixed the training data and test data together for the tennis set. So the frames generated below are actually not for test data, but for training data. Performance on real test data is presented in our final report. This is a big lesson for us from this project.
+                 </h4>
+                <div class="ui blue segment" id="predict_in_between">
+                    <div class="ui checkbox">
+                        <input type="checkbox" id="show_border_check">
+                        <label id="check_box_label">Hide Border</label>
+                    </div>
+                    <div id="border_in_between">
+                        <div class="center_panel">
+                            <div>
+                                <h3>Raw Flow</h3>
+                                <a data-fancybox="border_in_between" data-caption="Raw Flow" href="./resource/gif/Raw-1496557929.18039.gif"><img src="./resource/gif/Raw-1496557929.18039.gif"></a>
+                                </td>
+                            </div>
+                            <div>
+                                <h3>Linear Interpolation</h3>
+                                <a data-fancybox="border_in_between" href="./resource/gif/LinerInterpolation-1496557929.18039.gif" data-caption="Linear Interpolation">
+                                    <img src="./resource/gif/LinerInterpolation-1496557929.18039.gif">
+                                </a>
+                            </div>
+                            <div>
+                                <h3>Ours</h3>
+                                <a data-fancybox="border_in_between" href="./resource/gif/Ours-1496557929.18039.gif" data-caption="Ours">
+                                    <img src="./resource/gif/Ours-1496557929.18039.gif">
+                                </a>
+                            </div>
+                            <div>
+                                <h3>Ground Truth</h3>
+                                <a data-fancybox="border_in_between" href="./resource/gif/GroundTruth-1496557929.18039.gif" data-caption="Ground Truth">
+                                    <img src="./resource/gif/GroundTruth-1496557929.18039.gif">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="noborder_in_between">
+                    <div class="center_panel">
+                        <div>
+                            <h3>Raw Flow</h3>
+                            <a data-fancybox="border_in_between" href="./resource/gif/tennis_no_border/Raw-1496722258.32097.gif" data-caption="Raw Flow">
+                                <img src="./resource/gif/tennis_no_border/Raw-1496722258.32097.gif">
+                            </a>
+                        </div>
+                        <div>
+                            <h3>Linear Interpolation</h3>
+                            <a data-fancybox="border_in_between" href="./resource/gif/tennis_no_border/LinerInterpolation-1496722258.32097.gif" data-caption="Linear Interpolation">
+                                <img src="./resource/gif/tennis_no_border/LinerInterpolation-1496722258.32097.gif">
+                            </a>
+                        </div>
+                        <div>
+                            <h3>Ours</h3>
+                            <a data-fancybox="border_in_between" href="./resource/gif/tennis_no_border/Ours-1496722258.32097.gif" data-caption="Ours">
+                                <img src="./resource/gif/tennis_no_border/Ours-1496722258.32097.gif">
+                            </a>
+                        </div>
+                        <div>
+                            <h3>Ground Truth</h3>
+                            <a data-fancybox="border_in_between" href="./resource/gif/tennis_no_border/GroundTruth-1496722258.32097.gif" data-caption="Ground Truth">
+                                <img src="./resource/gif/tennis_no_border/GroundTruth-1496722258.32097.gif">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ui divider"></div>
+                    <div class="center_panel hide_on_small">
+                        <div class="ui Huge images">
+                            <a data-fancybox="training" data-caption="Encoder-Decoder Model" href="resource/img/4.png"><img src="resource/img/4.png"></a>
+                            <a data-fancybox="training" data-caption="Frame Prediction on Tennis Dataset" href="resource/img/5.png"><img src="resource/img/5.png"></a>
+                            <a data-fancybox="training" data-caption="Sequence Prediction" href="resource/img/6.png"><img src="resource/img/6.png"></a>
+                            <a data-fancybox="training" data-caption="Frame Prediction on Tennis Dataset" href="resource/img/7.png"><img src="resource/img/7.png"></a>
+
+                             <a data-fancybox="training" data-caption="Predict-in-Between on Road Dataset" href="resource/img/9.png"><img src="resource/img/9.png"></a>
+                        </div>
+                    </div>
+                    <div class="margin-top:8em;"></div>
+                    <h2 class="hide_on_small">Sequence Prediction</h2>
+                    <div class="ui blue segment hide_on_small" />
+                    <div class="center_panel hide_on_small">
+                        <div class="ui Huge images">
+                            <a data-fancybox="training" data-caption="Box - Sequence Prediction - Training Process" href="resource/img/8.png"><img src="resource/img/8.png"></a>
+
+                             <a data-fancybox="training" data-caption="Box - Sequence Prediction - Training Process" href="resource/img/10.png"><img src="resource/img/10.png"></a>
+                           
+                            <a data-fancybox="training" data-caption="Box - Sequence Prediction - Training Process" href="resource/img/11.png"><img src="resource/img/11.png"></a>
+                           
+                            <a data-fancybox="training" data-caption="Box - Sequence Prediction - Training Process" href="resource/img/12.png"><img src="resource/img/12.png"></a>
+                            <a data-fancybox="training" data-caption="Box - Sequence Prediction - Train" href="resource/img/13.png"><img src="resource/img/13.png"></a>
+                            <a data-fancybox="training" data-caption="Box - Sequence Prediction - Test" href="resource/img/14.png"><img src="resource/img/14.png"></a>
+
+                            <a data-fancybox="training" data-caption="Sequence Predictio on Road Dataset" href="resource/img/15.png"><img src="resource/img/15.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--    <h2>Predict Sequence</h2>
+                <div class="ui green segment">
+                </div>
+                <h2>Predict Future</h2>
+                <div class="ui green segment">
+                </div> -->
+        <div class="sep"></div>
+        <div class="mid_margin_top tail">
+            <div class="ui divider horizontal center">
+                2017 Stanford CS231N
+            </div>
+        </div>
+    </div>
+    <div class="sep"></div>
+    <div class="sep"></div>
+    <div class="sep"></div>
+    </div>
+</body>
+
+</html>
