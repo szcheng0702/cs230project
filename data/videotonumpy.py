@@ -31,7 +31,7 @@ for file in files:
     grsc = np.empty((frameCount,32, 32), np.dtype('uint8'))
     
     for i,elem in enumerate(buf):
-        grsc[i]=resized_image = cv2.resize( cv2.cvtColor(elem, cv2.COLOR_BGR2GRAY), (32, 32))
+        grsc[i] = cv2.normalize(cv2.resize( cv2.cvtColor(elem, cv2.COLOR_BGR2GRAY), (32, 32)).astype(np.float64), None, 0.0, 1.0, cv2.NORM_MINMAX)
         #d1={, 'info':file[:-4]}
     np.savez(file[:-4],imgs=grsc,info=file[:-4])
 
