@@ -1,0 +1,2 @@
+model_checkpoint_path: "walking-199"
+all_model_checkpoint_paths: "walking-199"
